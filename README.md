@@ -8,8 +8,8 @@
 - To fulfill the objectives of this repository, I have to create two models.
 
 ## Fulfillment 
-- Created three different models.
-- Created three related controllers.
+- Created two additional models: customer.js, account.js
+- Created two additional controllers: accountControllers.js, customerControllers.js
 
 ## Leftover
 - Need to update server.js
