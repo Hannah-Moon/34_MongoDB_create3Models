@@ -5,4 +5,4 @@ const accountSchema = new mongoose.Schema({
     routingNumber: Number
 });
 
-module.exports = mongoose.model('Number', customerSchema);
+module.exports = mongoose.model('Number', accountSchema);
