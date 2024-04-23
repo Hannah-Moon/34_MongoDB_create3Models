@@ -8,8 +8,9 @@ const connecToDB = require("./config/connectToDB.js");
 const Note = require("./models/note");
 const notesController = require("./controller/notesControllers.js")
 const cors = require("cors");
+const Customer = require('./models/customers');
 
-app.use(express.urlencoded());
+app.use(express.urlencoded());    /// --> We need to add this line of code everytime to POST the data on POSTMAN. 
 app.use(express.json());
 
 app.use(cors());
