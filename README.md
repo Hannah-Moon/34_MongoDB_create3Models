@@ -6,3 +6,10 @@
 
 ## Requirement 
 - To fulfill the objectives of this repository, I have to create two models.
+
+## Fulfillment 
+- Created three different models.
+- Created three related controllers.
+
+## Leftover
+- Need to update server.js
