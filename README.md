@@ -10,5 +10,5 @@
 ## Fulfillment 
 - Created two additional models: customer.js, account.js
 - Created two additional controllers: accountControllers.js, customerControllers.js
-- Tested GET, POST, PATCH, DELETE 
+- Tested GET, POST, PATCH, DELETE on POSTMAN
 - Updated server.js
