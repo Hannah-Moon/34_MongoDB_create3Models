@@ -10,6 +10,5 @@
 ## Fulfillment 
 - Created two additional models: customer.js, account.js
 - Created two additional controllers: accountControllers.js, customerControllers.js
-
-## Leftover
-- Need to update server.js
+- Tested GET, POST, PATCH, DELETE 
+- Updated server.js
