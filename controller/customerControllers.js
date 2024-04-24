@@ -3,9 +3,9 @@ const Customer = require("../models/customer");
 const fetchAllCustomers = async (req, res) => {
   // 1. Get all customers from DB
   // 2. Send the customers back as a response
-  const customers = await Customer.find();
+  const allCustomers = await Customer.find();
   // --------------------------------(1)
-  res.json({ customer: customer });
+  res.json({ Customer: allCustomers });
   // --------------------------------(2)
 };
 
@@ -16,9 +16,9 @@ const fetchCustomer = async (req, res) => {
 
   const customerId = req.params.id;
   // --------------------------------(1)
-  const customer = await Customer.findById(customerId);
+  const findCustomer = await Customer.findById(customerId);
   // --------------------------------(2)
-  res.json({ customer: customer });
+  res.json({ Customer: findCustomer });
   // --------------------------------(3)
 };
 
@@ -26,17 +26,19 @@ const createCustomer = async (req, res) => {
   // 1. Get data from req.body
   // 2.Create customer
   // 3. Respond with new copy of customer
+
+
   console.log(`BODY: ${req.body}`);
-  const title = req.body.title;
-  const body = req.body.body;
+  const name = req.body.name;
+  const industry = req.body.industry;
   // const {title,body} = req.body
   // --------------------------------(1)
-  const customer = await Customer.create({
-    name: name,
-    email: email,
+  const newCustomer = await Customer.create({
+    name: name, 
+    industry: industry
   });
   // --------------------------------(2)
-  res.json({ customer: customer });
+  res.json({ Customer: newCustomer });
   // --------------------------------(3)
 };
 
@@ -47,17 +49,16 @@ const updateCustomer = async (req, res) => {
   // 4. Retrieve updatedCustomer and send it as a response
   const CustomerId = req.params.id;
   // --------------------------------(1)
-  const { name, email } = req.body;
+  const { name, industry } = req.body;
   // --------------------------------(2)
   const customer = await customer.findByIdAndUpdate(customerId, {
-    name: name,
-    email: email,
+    name: name, 
+    industry: industry,
   });
   // --------------------------------(2)
   const updatedCustomer = await Customer.findById(customerId);
-  res.json({ customer: updatedCustomer });
+  res.json({ Customer: updatedCustomer });
 };
-
 const deleteCustomer = async(req, res) => {
     // 1. Get the id off the url
     // 2. Delete the record

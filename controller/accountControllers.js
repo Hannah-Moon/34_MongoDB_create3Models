@@ -5,7 +5,7 @@ const fetchAllAccounts = async (req, res) => {
   // 2. Send the accounts back as a response
   const accounts = await Account.find();
   // --------------------------------(1)
-  res.json({ account: account });
+  res.json({ Account: accounts });
   // --------------------------------(2)
 };
 
@@ -18,25 +18,26 @@ const fetchAccount = async (req, res) => {
   // --------------------------------(1)
   const account = await Account.findById(accountId);
   // --------------------------------(2)
-  res.json({ account: account });
+  res.json({ Account: accounts });
   // --------------------------------(3)
 };
+
 
 const createAccount = async (req, res) => {
   // 1. Get data from req.body
   // 2.Create account
   // 3. Respond with new copy of account
   console.log(`BODY: ${req.body}`);
-  const title = req.body.title;
-  const body = req.body.body;
+  const accountNumber = req.body.accountNumber;
+  const routingNumber = req.body.routingNumber;
   // const {title,body} = req.body
   // --------------------------------(1)
   const account = await Account.create({
-    name: name,
-    email: email,
+    accountNumber: Number, 
+    routingNumber: Number,
   });
   // --------------------------------(2)
-  res.json({ account: account });
+  res.json({ Account: accounts });
   // --------------------------------(3)
 };
 
@@ -50,8 +51,8 @@ const updateAccount = async (req, res) => {
   const { name, email } = req.body;
   // --------------------------------(2)
   const account = await account.findByIdAndUpdate(accountId, {
-    name: name,
-    email: email,
+    accountNumber: Number, 
+    routingNumber: Number,
   });
   // --------------------------------(2)
   const updatedAccount = await Account.findById(accountId);

@@ -8,13 +8,13 @@ const connecToDB = require("./config/connectToDB.js");
 
 // Models
 const Note = require("./models/note");
-const Customer = require("./models/customer");
 const Account = require("./models/account");
+const Customer = require("./models/customer");
 
 // Controller 
 const notesController = require("./controller/notesControllers.js")
-const customersController = require("./controller/customerControllers.js")
 const accountsController = require("./controller/notesControllers.js")
+const customersController = require("./controller/customerControllers.js")
 
 
 const cors = require("cors");
@@ -45,10 +45,20 @@ app.put("/notes/:id", notesController.updateNote);
 
 app.delete("/notes/:id", notesController.deleteNote);
 
-// ------------------------------ [ Customer ]
-
 
 // ------------------------------ [ Account ]
+
+
+
+// ------------------------------ [ Customer ]
+app.get('/customers', customersController.fetchAllCustomers);
+
+app.post("/customers", customersController.createCustomer);
+
+app.put("/customers/:id", customersController.updateCustomer);
+
+
+
 
 
 
