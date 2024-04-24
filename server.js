@@ -47,7 +47,11 @@ app.delete("/notes/:id", notesController.deleteNote);
 
 
 // ------------------------------ [ Account ]
+app.get('/accounts', accountsController.fetchAllAccounts);
 
+app.post("/accounts", accountsController.createAccount);
+
+app.put("/accounts/:id", accountsController.updateAccount);
 
 
 // ------------------------------ [ Customer ]

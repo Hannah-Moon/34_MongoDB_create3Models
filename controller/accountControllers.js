@@ -16,9 +16,9 @@ const fetchAccount = async (req, res) => {
 
   const accountId = req.params.id;
   // --------------------------------(1)
-  const account = await Account.findById(accountId);
+  const findAccount = await Account.findById(accountId);
   // --------------------------------(2)
-  res.json({ Account: accounts });
+  res.json({ Account: findAccount });
   // --------------------------------(3)
 };
 
@@ -32,14 +32,15 @@ const createAccount = async (req, res) => {
   const routingNumber = req.body.routingNumber;
   // const {title,body} = req.body
   // --------------------------------(1)
-  const account = await Account.create({
-    accountNumber: Number, 
-    routingNumber: Number,
+  const newAccount = await Account.create({
+    accountNumber: accountNumber, 
+    routingNumber: routingNumber,
   });
   // --------------------------------(2)
-  res.json({ Account: accounts });
+  res.json({ Account: newAccount });
   // --------------------------------(3)
 };
+
 
 const updateAccount = async (req, res) => {
   // 1. Get id off the url
@@ -51,8 +52,8 @@ const updateAccount = async (req, res) => {
   const { name, email } = req.body;
   // --------------------------------(2)
   const account = await account.findByIdAndUpdate(accountId, {
-    accountNumber: Number, 
-    routingNumber: Number,
+    accountNumber: accountNumber, 
+    routingNumber: routingNumber,
   });
   // --------------------------------(2)
   const updatedAccount = await Account.findById(accountId);
