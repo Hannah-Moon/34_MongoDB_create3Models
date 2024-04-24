@@ -3,9 +3,9 @@ const Account = require("../models/account");
 const fetchAllAccounts = async (req, res) => {
   // 1. Get all accounts from DB
   // 2. Send the accounts back as a response
-  const accounts = await Account.find();
+  const allAccounts = await Account.find();
   // --------------------------------(1)
-  res.json({ Account: accounts });
+  res.json({ Account: allAccounts });
   // --------------------------------(2)
 };
 

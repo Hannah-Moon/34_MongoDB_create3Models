@@ -22,6 +22,8 @@ const fetchNote = async (req, res) => {
   // --------------------------------(3)
 };
 
+
+
 const createNote = async (req, res) => {
   // 1. Get data from req.body
   // 2.Create note

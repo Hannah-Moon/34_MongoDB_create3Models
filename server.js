@@ -13,9 +13,8 @@ const Customer = require("./models/customer");
 
 // Controller 
 const notesController = require("./controller/notesControllers.js")
-const accountsController = require("./controller/notesControllers.js")
+const accountsController = require("./controller/accountControllers.js")
 const customersController = require("./controller/customerControllers.js")
-
 
 const cors = require("cors");
 
@@ -24,10 +23,6 @@ app.use(express.json());
 
 app.use(cors());
 connecToDB();
-
-
-
-
 
 app.get("/", (req, res) => {
     res.send("This is a Landing Page");
@@ -46,25 +41,28 @@ app.put("/notes/:id", notesController.updateNote);
 app.delete("/notes/:id", notesController.deleteNote);
 
 
-// ------------------------------ [ Account ]
-app.get('/accounts', accountsController.fetchAllAccounts);
-
-app.post("/accounts", accountsController.createAccount);
-
-app.put("/accounts/:id", accountsController.updateAccount);
-
-
 // ------------------------------ [ Customer ]
 app.get('/customers', customersController.fetchAllCustomers);
+
+app.get("/customers", customersController.fetchCustomer);
 
 app.post("/customers", customersController.createCustomer);
 
 app.put("/customers/:id", customersController.updateCustomer);
 
+app.delete("/customers/:id", customersController.deleteCustomer);
 
 
+// ------------------------------ [ Account ]
+app.get('/accounts', accountsController.fetchAllAccounts);
 
+app.get('/accounts', accountsController.fetchAccount);
 
+app.post("/accounts", accountsController.createAccount);
+
+app.put("/accounts/:id", accountsController.updateAccount);
+
+app.delete("/accounts", accountsController.deleteAccount);
 
 
 app.listen(PORT, () => {
